@@ -1,0 +1,85 @@
+      +-------------------+            +-------------------+
+      |   Employee       |            |   Customer        |
+      |-------------------|            |-------------------|
+      | id (PK)           |            | id (PK)           |
+      | first_name        |            | first_name        |
+      | last_name         |            | last_name         |
+      | employee_id       |            | email             |
+      | email             |            | phone_number      |
+      | phone_number      |            | address           |
+      | job_title         |            | city              |
+      | department        |            | state             |
+      | hire_date         |            | zip_code          |
+      | address           |            | country           |
+      | city              |            | notes             |
+      | state             |            +-------------------+
+      | zip_code          |
+      | country           |
+      | notes             |
+      +-------------------+
+
+      +-------------------+
+      |   Room            |
+      |-------------------|
+      | room_number (PK)  |
+      | room_type         |
+      | availability      |
+      +-------------------+
+
+      +-------------------+
+      |   Reservation     |
+      |-------------------|
+      | id (PK)           |
+      | room_id (FK)      |
+      | guest_id (FK)     |
+      | check_in_date     |
+      | check_out_date    |
+      | total_nights      |
+      | total_price       |
+      | check_in_status   |
+      | check_out_status  |
+      | additional_notes  |
+      +-------------------+
+        |                   |
+        |                   |
+        |                   |
+        v                   v
+      +-------------------+  +-------------------+
+      |   Room            |  |   Customer        |
+      |-------------------|  |-------------------|
+      | room_number (PK)  |  | id (PK)           |
+      | room_type         |  | first_name        |
+      | availability      |  | last_name         |
+      +-------------------+  | email             |
+                            | phone_number      |
+                            | address           |
+                            | city              |
+                            | state             |
+                            | zip_code          |
+                            | country           |
+                            | notes             |
+                            +-------------------+
+
+      +-------------------+
+      |   Restaurant Menu |
+      |-------------------|
+      | item_id (PK)      |
+      | item_name         |
+      | description       |
+      | category          |
+      | price             |
+      | vegetarian        |
+      | allergen_info     |
+      | availability      |
+      +-------------------+
+
+      +-------------------+
+      |   Marketing Platform |
+      |-----------------------|
+      | platform_id (PK)     |
+      | platform_name        |
+      | url                  |
+      | followers            |
+      | posts                |
+      | last_updated         |
+      +-----------------------+
