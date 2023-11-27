@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Contact</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js" ></script>
+    
+    <script>
+      var employee = {
+        name : "Joe",
+        age: 36,
+        occupation : "Reciptionist",
+        contact  : "214-650-9090"
+
+      };
+
+      var employeeList  = { 
+            "employees": [
+              {
+                    "name" : "Joe",
+                    "age": 36,
+                    "occupation" : "Reciptionist",
+                    "contact": "214-650-9090"
+              }, {
+
+                    "name" : "Mike",
+                    "age": 32,
+                    "occupation" : "Room Service",
+                    "contact": "214-650-6060"
+              },{
+
+                    "name" : "Sencha",
+                    "age": 26,
+                    "occupation" : "Security Guard",
+                    "contact": "214-876-8769"
+              },{
+
+                    "name" : "Brett",
+                    "age": 40,
+                    "occupation" : "Manager",
+                    "contact": "214-650-3232"
+              }
+            ]
+     }
+
+      function loadEmployeeDetails(){
+        var template = "<strong>Name:</strong> {{name}}<br/>"+
+                        "<strong>Age:</strong> {{age}}<br/>"+
+                        "<strong>Occupation:</strong> {{occupation}}<br/>"+
+                        "<strong>Contact Number:</strong> {{contact}}";
+        var output = Mustache.render(template, employee);
+        document.getElementById('employeeInfo').innerHTML = output;
+      }
+
+      // Display Employee List
+
+      function loadEmployeeList() {
+         var employeeListTemplate = "<ul>" +
+                                    "{{#employees}}" +
+                                        "<li>" +
+                                          "<strong>Name:</strong>{{name}} <br/>"+
+                                          "<strong>Age:</strong>{{age}} <br/>"+
+                                          "<strong>occupation :</strong>" +
+                                           "{{occupation }}<br/>"+
+                                           "<strong>Contact Number:</strong>" +
+                                           "{{contact}}<br/>"+
+                                          "----------------------------------------"+
+                                        "</li>" +
+                                    "{{/employees}}"+
+                                    "</ul>";
+          console.log(employeeListTemplate)  ;
+           console.log(employeeList)                         
+        var output = Mustache.render(employeeListTemplate, employeeList);
+        document.getElementById('employeeList').innerHTML = output;
+
+      }
+    </script>
+  </head>
+  <body>
+    <h1>You can contact our hotel team anytime!</h1>
+    <button onclick="loadEmployeeDetails()">Load Employee Details</button>
+    <button onclick="loadEmployeeList()">Load Employee List</button>
+    <div id="employeeInfo"></div>
+
+    
+    <div id="employeeList">
+
+    </div>
+    <style>
+      #footer {
+  border-top: 1px solid #dddddd;
+  margin-top: 50px;
+  padding: 10px;
+  text-align: center;
+  }
+  body {
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	color: #333333;
+	background-color: #f2f2f2;
+    }
+  </style>
+  <div id="footer">
+      <div class="container">
+          <p class="text-muted">&copy; 2023 My Website. All rights reserved.</p>
+      </div>
+  </div>
+  </body>
+</html>
